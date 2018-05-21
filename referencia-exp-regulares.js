@@ -15,6 +15,13 @@ $(document).ready(function(){
     });
 });
 
+// validarNumeros(event) {
+//     if (!/[0-9]|\./.test(event.key)) {
+//       event.returnValue = false;
+//       if (event.preventDefault) { event.preventDefault(); }
+//     }
+// }
+
 //select integers only
 var intRegex = /[0-9 -()+]+$/;   
 //match any ip address
