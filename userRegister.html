@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de Usuarios</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/validacion.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">
+            <form action='save.php' class='login' name='registration_form' method='post'>
+                <p class='title'>Ingrese sus datos</p>
+                <input type='text' class="text" name='nombreUsuario' id='nombreUsuario' placeholder='Nombres' autofocus required>
+                <input type='text' name='apellidoUsuario' id='apellidoUsuario' placeholder='Apellidos' required>
+                <input type='text' name='cedulaUsuario' id='cedulaUsuario' placeholder='Cédula' required>
+                <input type='text' name='user' id='user' placeholder='Nombre de Usuario' required>
+                <input type='password' name='pass' id='pass' placeholder='Contraseña' required>
+                <input type='email' name='email' id='email' placeholder='Correo' required>
+                <input type='tel' name='telefono' id='telefono' placeholder='Telefono' required>
+                <input type='text' name='direccion' id='direccion' placeholder='Dirección' required>
+                <button type name='BtnEnviar'  type='submit' id='BtnEnviar' value='Enviar'>
+                    <i class='spinner'></i>
+                    <span class='state'>Registrarse</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
