@@ -1,0 +1,167 @@
+html{
+  height: 100%;
+  overflow: hidden;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 100px;
+  padding-left: 160px;
+  background-color: white;
+  z-index: 1000;
+  position: absolute;
+  width: 100%;
+}
+
+.header-title-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.header-title-container h1 {
+  font-size: 30px;
+  color: rgb(35, 168, 124);
+  margin: 0;
+}
+
+.header-title-container h2 {
+  font-size: 25px;
+  color: rgb(1, 5, 4);
+  margin: 0;
+}
+
+.header-action-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
+  height: 30px;
+  background-color: rgb(35, 168, 124);
+  color: whitesmoke;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  z-index: 1001;
+}
+
+nav ul {
+  display: flex;
+  margin: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li a {
+  display: block;
+  color: whitesmoke;
+  padding: 0 20px;
+  font-weight: bold;
+  line-height: 30px;
+  text-shadow: 1px 1px 0px rgba(2, 2, 2, 0.5);
+  
+}
+
+nav ul li a:hover{
+  background-color: aquamarine;
+  color: inherit;
+  text-decoration: none;
+}
+
+header{
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 30vw 0 5vw;
+  transform-style: inherit;
+  width: 100vw;
+}
+
+header h1, i {
+  margin-top: -200px;
+  color: whitesmoke;
+  font-size: 70px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 20px;
+  text-shadow: 2px 2px 0px rgba(2, 2, 2, 0.9);
+}
+header div i {
+  margin-top: -130px;
+  font-size: 60px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 20px;
+  text-shadow: 2px 2px 0px rgba(2, 2, 2, 0.9);
+}
+header div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+header, header:before {
+  background: 50% 50% / cover;
+}
+
+header::before {
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  background-image: url(./../assets/5628075-venezuela-wallpapers.jpg);
+  background-size: cover;
+  transform-origin: center center 0;
+  transform: translateZ(-1px) scale(2);
+  z-index: 1px;
+  min-height: 100vh;
+}
+
+header * {
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+  padding: 1em 0;
+}
+
+.reserve-button {
+  color: inherit;
+  text-decoration: none !important;
+}
+.reserve-icon {
+  font-size: 40px;
+  color: inherit;
+  text-shadow: none;
+}
+
+section {
+  border: 1px solid red;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
