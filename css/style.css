@@ -60,7 +60,7 @@
     transform: rotateZ(-45deg);
   }
   .login input {
-    display: block;
+    display: flex;
     padding: 15px 10px;
     margin-bottom: 10px;
     width: 100%;
@@ -108,7 +108,7 @@
     padding: 10px 10px;
     background: #2196F3;
     color: #fff;
-    display: block;
+    display: flex;
     border: none;
     margin-top: 20px;
     position: absolute;
@@ -122,7 +122,7 @@
     border-bottom-width: 7px;
   }
   .login button .spinner {
-    display: block;
+    display: flex;
     width: 40px;
     height: 40px;
     position: absolute;

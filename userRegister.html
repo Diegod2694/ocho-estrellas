@@ -6,32 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro de Usuarios</title>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/validacion.js"></script>
+    <style>
+        body {
+            background-color: #badec3;
+        }
+
+        .login {
+            border-radius: 2px 2px 5px 5px;
+            padding: 10px 20px 20px 20px;
+            width: 90%;
+            max-width: 320px;
+            background: #ffffff;
+            position: relative;
+            /* padding-bottom: 80px; */
+            box-shadow: 1px 0px 1px 5px rgba(31, 105, 162, 0.3)
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .error {
+            /* display: flex;
+            flex-direction: row; */
+            word-wrap: break-word;
+            width: 125px;
+            color: white;
+            background-color: red;
+            font-size: 11px;
+        }
+
+        input {
+            flex-direction: row;
+            align-content: space-around;
+            display: flex;
+            justify-self: center;
+            border: 1px solid #ddd;
+            transition: border-width 0.2s ease;
+            border-radius: 2px;
+            color: #248cb5;
+            font-family: sans-serif;
+            font-style: oblique;
+            background-color: #deeeef;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">
             <form action='save.php' class='login' name='registration_form' method='post'>
-                <p class='title'>Ingrese sus datos</p>
-                <input type='text' class="text" name='nombreUsuario' id='nombreUsuario' placeholder='Nombres' autofocus required>
-                <input type='text' name='apellidoUsuario' id='apellidoUsuario' placeholder='Apellidos' required>
-                <input type='text' name='cedulaUsuario' id='cedulaUsuario' placeholder='Cédula' required>
-                <input type='text' name='user' id='user' placeholder='Nombre de Usuario' required>
-                <input type='password' name='pass' id='pass' placeholder='Contraseña' required>
-                <input type='email' name='email' id='email' placeholder='Correo' required>
-                <input type='tel' name='telefono' id='telefono' placeholder='Telefono' required>
-                <input type='text' name='direccion' id='direccion' placeholder='Dirección' required>
-                <button type name='BtnEnviar'  type='submit' id='BtnEnviar' value='Enviar'>
-                    <i class='spinner'></i>
-                    <span class='state'>Registrarse</span>
-                </button>
+                <center>
+                    <b class='title'>Ingrese sus datos</b><button disabled="disabled"></button>
+                    <div class="column">
+                        <!-- <div class="row"> -->
+                        <input type='text' onkeyup="validateForm()" class="character" name='nombreUsuario' id='nombreUsuario' placeholder='Nombres' autofocus required>
+                        <!-- <div class="error" appendto="body">Ingrese su Nombre</div> -->
+                        <!-- </div> -->
+                    </div>
+                    <div class="column">
+                        <input type='text' onkeyup="validateForm()" class="character" name='apellidoUsuario' id='apellidoUsuario' placeholder='Apellidos' required>
+                    </div>
+                    <div class="column"> 
+                        <input type='text' onkeyup="validateForm()" class="numeric" name='cedulaUsuario' id='cedulaUsuario' placeholder='Cédula' required>
+                    </div>
+                    <div class="column">
+                        <input type='text' onkeyup="validateForm()" name='user' id='user' placeholder='Nombre de Usuario' required>
+                    </div>
+                    <div class="column">
+                        <input type='password' onkeyup="validateForm()" name='pass' id='pass' placeholder='Contraseña' required>
+                    </div>
+                    <div class="column">
+                        <input type='text' onkeyup="validateEmail(this.value); validateForm();" class="email" name='email' id='email' placeholder='Correo' required>
+                    </div>
+                    <div class="column">
+                        <input type='tel' class="numeric" onkeyup="validateForm()" name='telefono' id='telefono' placeholder='Telefono' required>
+                    </div>
+                    <div class="column">
+                        <input type='text' onkeyup="validateForm()" name='direccion' id='direccion' placeholder='Dirección' required>
+                    </div>
+                    <button type name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
+                        <i class='spinner'></i>
+                        <span class='state'>Registrarse</span>
+                    </button>
+                </center>
             </form>
         </div>
     </div>
-    
+
+    <!-- <script>
+            function soloLetras(e){
+               key = e.keyCode || e.which;
+               tecla = String.fromCharCode(key).toLowerCase();
+               letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+               especiales = "8-37-39-46";
+        
+               tecla_especial = false
+               for(var i in especiales){
+                    if(key == especiales[i]){
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+        
+                if(letras.indexOf(tecla)==-1 && !tecla_especial){
+                    return false;
+                }
+            }
+        </script>
+        
+        <input type="text" onkeypress="return soloLetras(event)"> -->
+
 </body>
+
 </html>
