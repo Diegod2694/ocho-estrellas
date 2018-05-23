@@ -21,7 +21,7 @@
     $phone = $areaCode . $phoneNumber;
     $cedulaFull = $identification . $cedula;
 
-    $queryRespuesta = $conn->query("INSERT INTO usuarios (null, NombreUsuario, ApellidoUsuario, CedulaUsuario, 
+    $queryRespuesta = $conn->query("INSERT INTO usuarios (NombreUsuario, ApellidoUsuario, CedulaUsuario, 
             Pass, User, Email, Telefono, Direccion, Permisos) VALUES ('$firstname', '$lastName', 
             '$cedulaFull', '$password', '$usuario', '$email', '$phone', '$address', $permisos)");
 
