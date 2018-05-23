@@ -27,7 +27,7 @@
         <ul>
             <li>
                 <a href="#login">Login</a>
-                <a href="#registrarse">Registrarse</a>
+                <a href="userRegister.html">Registrarse</a>
             </li>
         </ul>
     </nav>

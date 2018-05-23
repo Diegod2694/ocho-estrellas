@@ -1,3 +1,6 @@
+//Página para expresiones regulares :DDDD
+//https://code.tutsplus.com/es/tutorials/8-regular-expressions-you-should-know--net-6149
+
 // Solo permite ingresar números
 $(document).ready(function(){
     $("inputNombre").keypress(function(key){
@@ -36,7 +39,7 @@ var floatRegex = '[-+]?([0-9]*.[0-9]+|[0-9]+)';
 var number1to50Regex = /(^[1-9]{1}$|^[1-4]{1}[0-9]{1}$|^50$)/gm; 
 
 //match email address
-var emailRegex = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$'; 
+var emailRegex = '/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/'; 
 //match credit card numbers
 var creditCardRegex = '^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35d{3})d{11})$'; 
 //match username

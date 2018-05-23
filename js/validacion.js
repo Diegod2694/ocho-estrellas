@@ -10,6 +10,11 @@ $(document).ready(function () {
             return false;
         }
     });
+    $('.phone').keypress(function (key) {
+        if (!/^[0-9]$/.test(key.key)) {
+            return false;
+        }
+    });
     document.getElementById("BtnEnviar").disabled = true;
     // $('#email').keypress(function(){
     //     console.log("Estamos en mail => ", $('#email').val());
@@ -21,7 +26,7 @@ $(document).ready(function () {
 
 function validateEmail(value) {
     console.log("Value => ", value);
-    if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/.test(value)) {
+    if (/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(value)) {
         console.log("Entró al if");
     }
 }
@@ -37,6 +42,8 @@ function validateForm() {
     } else if ($('#pass').val() == '') {
         document.getElementById("BtnEnviar").disabled = true;
     } else if ($('#email').val() == '') {
+        document.getElementById("BtnEnviar").disabled = true;
+    } else if (!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($('#email').val())){
         document.getElementById("BtnEnviar").disabled = true;
     } else if ($('#telefono').val() == '') {
         document.getElementById("BtnEnviar").disabled = true;
