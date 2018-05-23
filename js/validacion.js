@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    // document.getElementById("BtnEnviar").disabled = true;
+    // document.getElementById("advertencia").hidden = true;
+    // document.getElementById("faltantesPanel").hidden = true;
     $('.character').keypress(function (key) {
         if (!/^[A-z]$/.test(key.key)) {
             return false;
@@ -20,9 +23,6 @@ $(document).ready(function () {
     }, function(){
         document.getElementById("faltantesPanel").hidden = true;
     })
-    document.getElementById("BtnEnviar").disabled = true;
-    document.getElementById("advertencia").hidden = true;
-    document.getElementById("faltantesPanel").hidden = true;
 });
 
 // <script>

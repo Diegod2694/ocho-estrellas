@@ -9,113 +9,13 @@
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="./css/webfonts/fontawesome-all.css" rel="stylesheet">
+    <link href="./css/userRegister.css" rel="stylesheet">
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/validacion.js"></script>
-    <style>
-        body {
-            background-color: rgb(35, 168, 124);
-        }
-
-        .login {
-            border-radius: 2px 2px 5px 5px;
-            padding: 10px 20px 20px 20px;
-            width: 90%;
-            max-width: 320px;
-            background: #ffffff;
-            position: relative;
-            /* padding-bottom: 80px; */
-            box-shadow: 1px 0px 1px 5px rgba(0, 144, 255, 0.98);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .warn {
-            height: 25px;
-            width: 25px;
-            background-color: white;
-        }
-
-        .aside {
-            background-color: white;
-            float: left;
-            border-radius: 0px 0px 10px 0px;
-            padding: 10px 20px 20px 20px;
-            box-shadow: 3px 3px 5px 5px;
-            position: absolute;
-        }
-
-        .icono {
-            display: flex;
-            justify-content: center;
-        }
-
-        .column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .fila {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .fila b {
-            justify-self: center;
-        }
-
-        .fila a {
-            justify-self: flex-end;
-        }
-
-        .title {
-            color: #444;
-            font-size: 1.2em;
-            font-weight: bold;
-            /* margin: 10px 0 30px 0; */
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-        }
-
-        .error {
-            /* display: flex;
-            flex-direction: row; */
-            word-wrap: break-word;
-            width: 125px;
-            color: white;
-            background-color: red;
-            font-size: 11px;
-        }
-
-        select {
-            height: fit-content;
-            background-color: #deeeef;
-            justify-self: center;
-            border: 1px solid #ddd;
-            transition: border-width 0.2s ease;
-            border-radius: 2px;
-            color: #248cb5;
-        }
-
-        input {
-            flex-direction: row;
-            align-content: space-around;
-            display: flex;
-            justify-self: center;
-            border: 1px solid #ddd;
-            transition: border-width 0.2s ease;
-            border-radius: 2px;
-            color: #248cb5;
-            font-family: sans-serif;
-            font-style: oblique;
-            background-color: #deeeef;
-            margin-bottom: 10px;
-            width: -webkit-fill-available;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="aside" id="faltantesPanel" style="float: right">
+    <div class="aside" hidden id="faltantesPanel" style="float: right">
         <b class='title'>Datos faltantes</b>
         <br>
         <br>
@@ -132,7 +32,7 @@
                             <b class='title'>Ingrese sus datos</b>
                         </center>
                         <div>
-                            <a class="btn warn" id="advertencia" onclick="true">
+                            <a class="btn warn" hidden id="advertencia" onclick="true">
                                 <i class="fa fa-exclamation-circle icono"></i>
                             </a>
                         </div>
@@ -190,7 +90,7 @@
                         </select>
                     </div>
                     <br>
-                    <button type name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
+                    <button disabled name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
                         <i class='spinner'></i>
                         <span class='state'>Registrarse</span>
                     </button>
