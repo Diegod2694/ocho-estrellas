@@ -118,11 +118,9 @@ header div{
   display: flex;
   justify-content: center;
 }
-
 header, header:before {
   background: 50% 50% / cover;
 }
-
 header::before {
   bottom: 0;
   content: "";
@@ -138,7 +136,6 @@ header::before {
   z-index: 1px;
   min-height: 100vh;
 }
-
 header * {
   font-weight: normal;
   letter-spacing: 0.2em;
@@ -156,12 +153,44 @@ header * {
   color: inherit;
   text-shadow: none;
 }
-
 section {
   border: 1px solid red;
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 9999;
+  background-color: white;
+  position: absolute;
 }
-
+.form-container{
+  padding: 0 250px;
+  width: 100%;
+  
+}
+.form-container form{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.form-container form input {
+  margin: 0 5px;
+}
+.form-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.form-logo{
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+}
+.form-text-container{
+  width: 100%;
+}
+.form-text-container h2 {
+  font-size: 30px;
+  color: rgb(35, 168, 124);
+}
