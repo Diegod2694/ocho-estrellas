@@ -28,6 +28,14 @@
             overflow-y: auto;
         }
 
+        aside {
+            background-color: white;
+            float: right;
+            border-radius: 0px 0px 0px 10px;
+            padding: 10px 20px 20px 20px;
+            box-shadow: -5px 3px 10px 4px;
+        }
+
         .column {
             display: flex;
             flex-direction: column;
@@ -77,6 +85,12 @@
 </head>
 
 <body>
+    <aside>
+        <b class='title'>Datos faltantes</b><br><br>
+        <ul id="datosFaltantes">
+            
+        </ul>
+    </aside>
     <div class="container">
         <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">
             <form action='save.php' class='login' name='registration_form' method='post'>
@@ -95,7 +109,7 @@
                     </div>
                     <div class="column">
                         <div class="fila">
-                            <select name="" id="">
+                            <select name="identification" id="identification">
                                 <option value="V-">V</option>
                                 <option value="J-">J</option>
                             </select>
@@ -115,7 +129,7 @@
                     </div>
                     <div class="column">
                         <div class="fila">
-                            <select name="" id="">
+                            <select name="areaPhone" id="areaPhone">
                                 <option value="+58">+58</option>
                                 <option value="+57">+57</option>
                                 <option value="+56">+56</option>
@@ -128,6 +142,13 @@
                     <div class="column">
                         <input type='text' onkeyup="validateForm()" name='direccion' id='direccion' placeholder='Dirección' required>
                     </div>
+                    <div class="column">
+                        <select name="permisos" id="permisos">
+                            <option value=0>Cliente</option>
+                            <option value=1>Administrador</option>
+                        </select>
+                    </div>
+                    <br>
                     <button type name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
                         <i class='spinner'></i>
                         <span class='state'>Registrarse</span>
@@ -136,29 +157,6 @@
             </form>
         </div>
     </div>
-
-    <!-- <script>
-            function soloLetras(e){
-               key = e.keyCode || e.which;
-               tecla = String.fromCharCode(key).toLowerCase();
-               letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-               especiales = "8-37-39-46";
-        
-               tecla_especial = false
-               for(var i in especiales){
-                    if(key == especiales[i]){
-                        tecla_especial = true;
-                        break;
-                    }
-                }
-        
-                if(letras.indexOf(tecla)==-1 && !tecla_especial){
-                    return false;
-                }
-            }
-        </script>
-        
-        <input type="text" onkeypress="return soloLetras(event)"> -->
 
 </body>
 
