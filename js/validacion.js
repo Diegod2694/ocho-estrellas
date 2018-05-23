@@ -15,13 +15,14 @@ $(document).ready(function () {
             return false;
         }
     });
+    $('#advertencia').hover(function(){
+        document.getElementById("faltantesPanel").hidden = false;
+    }, function(){
+        document.getElementById("faltantesPanel").hidden = true;
+    })
     document.getElementById("BtnEnviar").disabled = true;
-    // $('#email').keypress(function(){
-    //     console.log("Estamos en mail => ", $('#email').val());
-    //     if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/.test($('#email').val())){
-    //         return false;
-    //     }
-    // });
+    document.getElementById("advertencia").hidden = true;
+    document.getElementById("faltantesPanel").hidden = true;
 });
 
 // <script>
@@ -54,52 +55,60 @@ function validateEmail(value) {
     }
 }
 function validateForm() {
-    let errores = '';
+    let datosFaltantes = '';
+    let errores = 0;
     document.getElementById('datosFaltantes').innerHTML = '';
-    if ($('#nombreUsuario').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#apellidoUsuario').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#cedulaUsuario').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#user').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#pass').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#email').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if (!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($('#email').val())){
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#telefono').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else if ($('#direccion').val() == '') {
-        document.getElementById("BtnEnviar").disabled = true;
-    } else {
-        document.getElementById("BtnEnviar").disabled = false;
-    }
     if ($('#nombreUsuario').val() == ''){
-        errores += '<li>Nombre</li>';
+        datosFaltantes += '<li>Nombre</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if ($('#apellidoUsuario').val() == ''){
-        errores += '<li>Apellido</li>';
+        datosFaltantes += '<li>Apellido</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if ($('#cedulaUsuario').val() == ''){
-        errores += '<li>Cédula</li>';
+        datosFaltantes += '<li>Cédula</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if ($('#user').val() == ''){
-        errores += '<li>Usuario</li>';
+        datosFaltantes += '<li>Usuario</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
+    }
+    if ($('#pass').val() == ''){
+        datosFaltantes += '<li>Contraseña</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if ($('#email').val() == ''){
-        errores += '<li>Correo Electrónico</li>';
+        datosFaltantes += '<li>Correo Electrónico</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if (!/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test($('#email').val())){
-        errores += '<li>Correo Electrónico No Válido</li>'
+        datosFaltantes += '<li>Correo Electrónico No Válido</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if ($('#telfono').val() == ''){
-        errores += '<li>Teléfono</li>';
+        datosFaltantes += '<li>Teléfono</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
     if ($('#direccion').val() == ''){
-        errores += '<li>Dirección</li>';
+        datosFaltantes += '<li>Dirección</li>';
+        errores += 1;
+        document.getElementById("advertencia").hidden = false;
     }
-    document.getElementById('datosFaltantes').innerHTML = errores;
+    if(errores == 0){
+        document.getElementById("BtnEnviar").disabled = false;
+        document.getElementById("advertencia").hidden = true;
+    } else {
+        document.getElementById("BtnEnviar").disabled = true;
+        document.getElementById("advertencia").hidden = false;
+    }
+    document.getElementById('datosFaltantes').innerHTML = datosFaltantes;
 }

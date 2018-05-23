@@ -8,6 +8,7 @@
     <title>Registro de Usuarios</title>
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="./css/webfonts/fontawesome-all.css" rel="stylesheet">
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/validacion.js"></script>
     <style>
@@ -28,12 +29,24 @@
             overflow-y: auto;
         }
 
-        aside {
+        .warn {
+            height: 25px;
+            width: 25px;
             background-color: white;
-            float: right;
-            border-radius: 0px 0px 0px 10px;
+        }
+
+        .aside {
+            background-color: white;
+            float: left;
+            border-radius: 0px 0px 10px 0px;
             padding: 10px 20px 20px 20px;
-            box-shadow: -5px 3px 10px 4px;
+            box-shadow: 3px 3px 5px 5px;
+            position: absolute;
+        }
+
+        .icono {
+            display: flex;
+            justify-content: center;
         }
 
         .column {
@@ -44,6 +57,23 @@
         .fila {
             display: flex;
             flex-direction: row;
+        }
+
+        .fila b {
+            justify-self: center;
+        }
+
+        .fila a {
+            justify-self: flex-end;
+        }
+
+        .title {
+            color: #444;
+            font-size: 1.2em;
+            font-weight: bold;
+            /* margin: 10px 0 30px 0; */
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
 
         .error {
@@ -85,17 +115,28 @@
 </head>
 
 <body>
-    <aside>
-        <b class='title'>Datos faltantes</b><br><br>
+    <div class="aside" id="faltantesPanel" style="float: right">
+        <b class='title'>Datos faltantes</b>
+        <br>
+        <br>
         <ul id="datosFaltantes">
-            
+
         </ul>
-    </aside>
+    </div>
     <div class="container">
         <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">
             <form action='save.php' class='login' name='registration_form' method='post'>
                 <center>
-                    <b class='title'>Ingrese sus datos</b>
+                    <div class="fila">
+                        <center>
+                            <b class='title'>Ingrese sus datos</b>
+                        </center>
+                        <div>
+                            <a class="btn warn" id="advertencia" onclick="true">
+                                <i class="fa fa-exclamation-circle icono"></i>
+                            </a>
+                        </div>
+                    </div>
                     <div class="column">
                         <!-- <div class="row"> -->
                         <input type='text' onkeyup="validateForm()" class="character" name='nombreUsuario' id='nombreUsuario' placeholder='Nombres'
