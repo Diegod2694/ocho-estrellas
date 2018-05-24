@@ -3,17 +3,19 @@ $(document).ready(function () {
     // document.getElementById("advertencia").hidden = true;
     // document.getElementById("faltantesPanel").hidden = true;
     $('.character').keypress(function (key) {
-        if (!/^[A-z]$/.test(key.key)) {
+        console.log("AAAAAAAAAAAAH");
+        if (!/^[a-zA-Z]+(\s[a-zA-Z]+)?$/.test(key.key)) {
             return false;
-
         }
     });
     $('.numeric').keypress(function (key) {
+        console.log("AAAAAAAAAAAAH");
         if (!/^[0-9]$/.test(key.key)) {
             return false;
         }
     });
     $('.phone').keypress(function (key) {
+        console.log("AAAAAAAAAAAAH");
         if (!/^[0-9]$/.test(key.key)) {
             return false;
         }
