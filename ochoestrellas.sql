@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2018 a las 23:30:48
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Tiempo de generación: 25-05-2018 a las 22:42:07
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `ochoestrellas`
@@ -26,15 +28,15 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `habitaciones`
 --
 
-CREATE TABLE IF NOT EXISTS `habitaciones` (
-`IdHabitacion` int(11) NOT NULL,
+CREATE TABLE `habitaciones` (
+  `IdHabitacion` int(11) NOT NULL,
   `NumeroHabitacion` varchar(10) DEFAULT NULL,
   `Disponibilidad` tinyint(1) NOT NULL,
   `Categoria` varchar(40) NOT NULL,
   `Piso` int(11) DEFAULT NULL,
   `TipoHabitacion` int(11) NOT NULL,
   `Hotel` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=262 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `habitaciones`
@@ -208,14 +210,14 @@ INSERT INTO `habitaciones` (`IdHabitacion`, `NumeroHabitacion`, `Disponibilidad`
 -- Estructura de tabla para la tabla `hoteles`
 --
 
-CREATE TABLE IF NOT EXISTS `hoteles` (
-`IdHotel` int(11) NOT NULL,
+CREATE TABLE `hoteles` (
+  `IdHotel` int(11) NOT NULL,
   `NombreHotel` varchar(40) NOT NULL,
   `DireccionHotel` varchar(50) NOT NULL,
   `Estrellas` int(11) NOT NULL,
   `Ciudad` varchar(50) NOT NULL,
   `RIF` varchar(15) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `hoteles`
@@ -234,11 +236,30 @@ INSERT INTO `hoteles` (`IdHotel`, `NombreHotel`, `DireccionHotel`, `Estrellas`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `permisos`
+--
+
+CREATE TABLE `permisos` (
+  `id_Permiso` tinyint(1) NOT NULL,
+  `desc_Permiso` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `permisos`
+--
+
+INSERT INTO `permisos` (`id_Permiso`, `desc_Permiso`) VALUES
+(0, 'Cliente'),
+(1, 'Administrador');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `registrohabitacion`
 --
 
-CREATE TABLE IF NOT EXISTS `registrohabitacion` (
-`IdRegHab` int(11) NOT NULL,
+CREATE TABLE `registrohabitacion` (
+  `IdRegHab` int(11) NOT NULL,
   `Habitacion` int(11) NOT NULL,
   `Reserva` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -249,8 +270,8 @@ CREATE TABLE IF NOT EXISTS `registrohabitacion` (
 -- Estructura de tabla para la tabla `reservas`
 --
 
-CREATE TABLE IF NOT EXISTS `reservas` (
-`IdReserva` int(11) NOT NULL,
+CREATE TABLE `reservas` (
+  `IdReserva` int(11) NOT NULL,
   `FechaInicio` date NOT NULL,
   `FechaFin` date NOT NULL,
   `FechaReserva` date NOT NULL,
@@ -265,12 +286,12 @@ CREATE TABLE IF NOT EXISTS `reservas` (
 -- Estructura de tabla para la tabla `tipohabitaciones`
 --
 
-CREATE TABLE IF NOT EXISTS `tipohabitaciones` (
-`IdTipoHab` int(11) NOT NULL,
+CREATE TABLE `tipohabitaciones` (
+  `IdTipoHab` int(11) NOT NULL,
   `DescripcionTipoHab` varchar(100) NOT NULL,
   `PrecioTipoHab` double NOT NULL,
   `NombreTipoHab` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tipohabitaciones`
@@ -288,25 +309,27 @@ INSERT INTO `tipohabitaciones` (`IdTipoHab`, `DescripcionTipoHab`, `PrecioTipoHa
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE IF NOT EXISTS `usuarios` (
-`IdUsuario` int(11) NOT NULL,
+CREATE TABLE `usuarios` (
+  `IdUsuario` int(11) NOT NULL,
   `NombreUsuario` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `ApellidoUsuario` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `CedulaUsuario` int(11) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `CedulaUsuario` varchar(11) NOT NULL,
+  `Pass` varchar(30) NOT NULL,
   `User` varchar(30) NOT NULL,
   `Email` varchar(30) NOT NULL,
-  `Telefono` int(15) NOT NULL,
+  `Telefono` varchar(15) NOT NULL,
   `Direccion` varchar(50) NOT NULL,
-  `Permisos` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `Permisos` tinyint(1) NOT NULL,
+  `activo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`IdUsuario`, `NombreUsuario`, `ApellidoUsuario`, `CedulaUsuario`, `Password`, `User`, `Email`, `Telefono`, `Direccion`, `Permisos`) VALUES
-(1, '', '', 0, '8estrellas', 'Admin8e', '', 0, '', 1);
+INSERT INTO `usuarios` (`IdUsuario`, `NombreUsuario`, `ApellidoUsuario`, `CedulaUsuario`, `Pass`, `User`, `Email`, `Telefono`, `Direccion`, `Permisos`, `activo`) VALUES
+(1, '', '', '0', '8estrellas', 'Admin8e', '', '0', '', 1, 1),
+(2, 'Jesus Enrique', 'Soto', 'V-25778993', '25778993', 'itsyasus', 'jesusenriquesotoa@gmail.com', '+5804246587954', 'Valle frio', 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -316,37 +339,56 @@ INSERT INTO `usuarios` (`IdUsuario`, `NombreUsuario`, `ApellidoUsuario`, `Cedula
 -- Indices de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
- ADD PRIMARY KEY (`IdHabitacion`), ADD KEY `Hotel` (`Hotel`), ADD KEY `TipoHabitacion` (`TipoHabitacion`), ADD KEY `IdHabitacion` (`IdHabitacion`), ADD KEY `IdHabitacion_2` (`IdHabitacion`), ADD KEY `IdHabitacion_3` (`IdHabitacion`);
+  ADD PRIMARY KEY (`IdHabitacion`),
+  ADD KEY `Hotel` (`Hotel`),
+  ADD KEY `TipoHabitacion` (`TipoHabitacion`),
+  ADD KEY `IdHabitacion` (`IdHabitacion`),
+  ADD KEY `IdHabitacion_2` (`IdHabitacion`),
+  ADD KEY `IdHabitacion_3` (`IdHabitacion`);
 
 --
 -- Indices de la tabla `hoteles`
 --
 ALTER TABLE `hoteles`
- ADD PRIMARY KEY (`IdHotel`);
+  ADD PRIMARY KEY (`IdHotel`);
+
+--
+-- Indices de la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD PRIMARY KEY (`id_Permiso`);
 
 --
 -- Indices de la tabla `registrohabitacion`
 --
 ALTER TABLE `registrohabitacion`
- ADD PRIMARY KEY (`IdRegHab`), ADD KEY `Habitacion` (`Habitacion`,`Reserva`), ADD KEY `Reserva` (`Reserva`);
+  ADD PRIMARY KEY (`IdRegHab`),
+  ADD KEY `Habitacion` (`Habitacion`,`Reserva`),
+  ADD KEY `Reserva` (`Reserva`);
 
 --
 -- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
- ADD PRIMARY KEY (`IdReserva`), ADD KEY `Usuario` (`Usuario`);
+  ADD PRIMARY KEY (`IdReserva`),
+  ADD KEY `Usuario` (`Usuario`);
 
 --
 -- Indices de la tabla `tipohabitaciones`
 --
 ALTER TABLE `tipohabitaciones`
- ADD PRIMARY KEY (`IdTipoHab`);
+  ADD PRIMARY KEY (`IdTipoHab`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
- ADD PRIMARY KEY (`IdUsuario`), ADD UNIQUE KEY `CedulaUsuario` (`CedulaUsuario`), ADD UNIQUE KEY `User` (`User`), ADD UNIQUE KEY `Email` (`Email`), ADD UNIQUE KEY `Telefono` (`Telefono`);
+  ADD PRIMARY KEY (`IdUsuario`),
+  ADD UNIQUE KEY `CedulaUsuario` (`CedulaUsuario`),
+  ADD UNIQUE KEY `User` (`User`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `Telefono` (`Telefono`),
+  ADD KEY `Permisos` (`Permisos`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -356,32 +398,38 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
-MODIFY `IdHabitacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=262;
+  MODIFY `IdHabitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+
 --
 -- AUTO_INCREMENT de la tabla `hoteles`
 --
 ALTER TABLE `hoteles`
-MODIFY `IdHotel` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `IdHotel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de la tabla `registrohabitacion`
 --
 ALTER TABLE `registrohabitacion`
-MODIFY `IdRegHab` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdRegHab` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-MODIFY `IdReserva` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdReserva` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `tipohabitaciones`
 --
 ALTER TABLE `tipohabitaciones`
-MODIFY `IdTipoHab` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `IdTipoHab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -390,21 +438,28 @@ MODIFY `IdUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- Filtros para la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
-ADD CONSTRAINT `habitaciones_ibfk_1` FOREIGN KEY (`Hotel`) REFERENCES `hoteles` (`IdHotel`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `habitaciones_ibfk_2` FOREIGN KEY (`TipoHabitacion`) REFERENCES `tipohabitaciones` (`IdTipoHab`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `habitaciones_ibfk_1` FOREIGN KEY (`Hotel`) REFERENCES `hoteles` (`IdHotel`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `habitaciones_ibfk_2` FOREIGN KEY (`TipoHabitacion`) REFERENCES `tipohabitaciones` (`IdTipoHab`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `permisos`
+--
+ALTER TABLE `permisos`
+  ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_Permiso`) REFERENCES `usuarios` (`Permisos`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `registrohabitacion`
 --
 ALTER TABLE `registrohabitacion`
-ADD CONSTRAINT `registrohabitacion_ibfk_1` FOREIGN KEY (`Reserva`) REFERENCES `reservas` (`IdReserva`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `registrohabitacion_ibfk_2` FOREIGN KEY (`Habitacion`) REFERENCES `habitaciones` (`IdHabitacion`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `registrohabitacion_ibfk_1` FOREIGN KEY (`Reserva`) REFERENCES `reservas` (`IdReserva`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `registrohabitacion_ibfk_2` FOREIGN KEY (`Habitacion`) REFERENCES `habitaciones` (`IdHabitacion`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`Usuario`) REFERENCES `usuarios` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`Usuario`) REFERENCES `usuarios` (`IdUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
