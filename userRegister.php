@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
-    include_once("conexion.php")
+    session_start();
+    include_once("conexion.php");
 ?>
 <html lang="en">
 
@@ -25,6 +26,9 @@
         <ul id="datosFaltantes">
 
         </ul>
+    </div>
+    <div class="otherSide">
+        <a href="index.html" class="link">¡Regresar!</a>
     </div>
     <div class="container">
         <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">
@@ -86,14 +90,25 @@
                     <div class="column">
                         <input type='text' onkeyup="validateForm()" name='direccion' id='direccion' placeholder='Dirección' required>
                     </div>
-                    <div class="column">
-                        <select name="permisos" id="permisos">
-                            <option value=0>Cliente</option>
-                            <option value=1>Administrador</option>
-                        </select>
-                    </div>
-                    <br>
-                    <button disabled name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
+                    <?php
+                    if(isset($_SESSION['user'])){
+                        if($_SESSION['permisos'] == 1){
+                            echo '
+                                <div class="column">
+                                    <select name="permisos" id="permisos">
+                                        <option value=0>Cliente</option>
+                                        <option value=1>Administrador</option>
+                                    </select>
+                                </div>
+                                <br>';
+                        } else {
+                            echo "<input type='text' name='permisos' id='permisos' hidden value=0>";
+                        }
+                    } else {
+                        echo "<input type='text' name='permisos' id='permisos' hidden value=0>";
+                    }
+                    ?>
+                    <button disabled class="btn btn-default" name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
                         <i class='spinner'></i>
                         <span class='state'>Registrarse</span>
                     </button>

@@ -31,6 +31,22 @@ body {
     position: absolute;
 }
 
+.otherSide{
+    display: flex;
+    justify-content: center;
+}
+
+.link{
+    background-size: 20px;
+    color: rgb(35, 168, 124);
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.5%;
+}
+.link:hover{
+    color: rgb(35, 168, 124);
+    text-decoration: none;
+}
 .icono {
     display: flex;
     justify-content: center;
@@ -60,7 +76,7 @@ body {
     font-weight: bold;
     /* margin: 10px 0 30px 0; */
     border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .error {
