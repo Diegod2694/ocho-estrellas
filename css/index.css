@@ -210,6 +210,40 @@ section {
 .no-margin {
   margin: 0 !important;
 }
+.icon-container {
+  margin-top: 10px;
+}
 .hotel-icon{
   font-size: 25px !important;
+  color: rgb(35, 168, 124);
+  text-shadow: none;
+}
+.suite-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.margin-hab{
+  margin-right: 30px;
+}
+.suite-title{
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(35, 168, 124);
+}
+.suite-text{
+  font-size: 14px;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.custom-button {
+  background-color: #23a87c;
+  border: none;
+  color: white;
+  font-family: inherit;
+  padding: 5px;
+  width: 100%;
 }

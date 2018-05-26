@@ -5,27 +5,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ocho Estrellas</title>
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="slides.css">
-    <link href="./css/webfonts/fontawesome-all.css" rel="stylesheet">
-    <link rel="icon" href="./assets/waterfall.png">
+    <?php
+        include_once('head.php');
+    ?>
 </head>
 <body>
     <nav>
         <ul>
             <li>
-                <a href="#inicio">Inicio</a>
+                <a href="index.php">Inicio</a>
                 <a href="#sobre-nosotros">Sobre Nosotros</a>
                 <a href="#explora">Explora</a>
                 <a href="#contactanos">Contactanos</a>
-                <a href="#reservaciones">Reservaciones</a>
+                <a href="reservaciones.php">Reservaciones</a>
                 <a href="reporte.php" target="_blank">Panel Administrativo</a>
             </li>
         </ul>

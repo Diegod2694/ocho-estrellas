@@ -5,17 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ocho Estrellas</title>
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="slides.css">
-    <link href="./css/webfonts/fontawesome-all.css" rel="stylesheet">
-    <link rel="icon" href="./assets/waterfall.png">
+   	<?php
+        include_once('head.php');
+    ?>
 </head>
 <body>
     <nav>
@@ -68,25 +60,109 @@
                 <input type="number" name="" id="">
                 <input type="submit" value="Enviar">
             </form>
-            <div class="form-content" style="margin:0 !important;">
-              <div class="suite-container no-margin"> 
-                <img src="/assets/hab1.jpg" alt="hab1">
+
+            <div class="form-content">
+              <div class="suite-container no-margin">
+                <img class="img-hab margin-hab" src="assets/hab1.jpg" alt="hab1">
+
                 <div class="suite-form">
-                  <h2>Suite Junior</h2>
-                  <h4>Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.</h4>
+                  <h2 class="suite-title">Suite Individual</h2>
+                  <h4 class="suite-text">Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.</h4>
                   <ul>
-                    <li>Tamaño: 260 ft²</li>
-                    <li>Camas: 2 dobles(s)</li>
+                    <li class="suite-text">Tamaño: 260 ft²</li>
+                    <li class="suite-text">Camas: 2 dobles(s)</li>
                   </ul>
-                  <div>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
-                    <i class="fas fa-star hotel-icon"></i>
+                  <div class="icon-container">
+                    <i class="fas fa-snowflake hotel-icon"></i>
+                    <i class="fas fa-wifi hotel-icon"></i>
+                    <i class="fas fa-tv hotel-icon"></i>
+                    <i class="fas fa-lock hotel-icon"></i>
+                    <i class="fas fa-glass-martini hotel-icon"></i>
+                    <i class="fas fa-phone hotel-icon"></i>
+                    <i class="fas fa-utensil-fork hotel-icon"></i>
+                    <i class="fas fa-bath hotel-icon"></i>
+                    <i class="fas fa-utensils hotel-icon"></i>
+                  </div>
+                </div>
+
+                <div class="button-container">
+                <h2>250.000 Bs.S</h2>
+                <button class="custom-button">Reservar</button>
+            </div>
+              </div>
+            </div>
+
+            <div class="form-content">
+              <div class="suite-container no-margin">
+                <img class="img-hab margin-hab" src="assets/hab1.jpg" alt="hab1">
+                <div class="suite-form">
+                  <h2 class="suite-title">Suite Doble</h2>
+                  <h4 class="suite-text">Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.</h4>
+                  <ul>
+                    <li class="suite-text">Tamaño: 260 ft²</li>
+                    <li class="suite-text">Camas: 2 dobles(s)</li>
+                  </ul>
+                  <div class="icon-container">
+                    <i class="fas fa-snowflake hotel-icon"></i>
+                    <i class="fas fa-wifi hotel-icon"></i>
+                    <i class="fas fa-tv hotel-icon"></i>
+                    <i class="fas fa-lock hotel-icon"></i>
+                    <i class="fas fa-glass-martini hotel-icon"></i>
+                    <i class="fas fa-phone hotel-icon"></i>
+                    <i class="fas fa-utensil-fork hotel-icon"></i>
+                    <i class="fas fa-bath hotel-icon"></i>
+                    <i class="fas fa-utensils hotel-icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-content">
+              <div class="suite-container no-margin">
+                <img class="img-hab margin-hab" src="assets/hab1.jpg" alt="hab1">
+                <div class="suite-form">
+                  <h2 class="suite-title">Suite Normal</h2>
+                  <h4 class="suite-text">Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.</h4>
+                  <ul>
+                    <li class="suite-text">Tamaño: 260 ft²</li>
+                    <li class="suite-text">Camas: 2 dobles(s)</li>
+                  </ul>
+                  <div class="icon-container">
+                    <i class="fas fa-snowflake hotel-icon"></i>
+                    <i class="fas fa-wifi hotel-icon"></i>
+                    <i class="fas fa-tv hotel-icon"></i>
+                    <i class="fas fa-lock hotel-icon"></i>
+                    <i class="fas fa-glass-martini hotel-icon"></i>
+                    <i class="fas fa-phone hotel-icon"></i>
+                    <i class="fas fa-utensil-fork hotel-icon"></i>
+                    <i class="fas fa-bath hotel-icon"></i>
+                    <i class="fas fa-utensils hotel-icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-content">
+              <div class="suite-container no-margin">
+                <img class="img-hab margin-hab" src="assets/hab1.jpg" alt="hab1">
+                <div class="suite-form">
+                  <h2 class="suite-title">Suite Presidencial</h2>
+                  <h4 class="suite-text">Nuestras Suites Junior ofrecen hermosas vistas de la ciudad.</h4>
+                  <ul>
+                    <li class="suite-text">Tamaño: 260 ft²</li>
+                    <li class="suite-text">Camas: 2 dobles(s)</li>
+                  </ul>
+                  <div class="icon-container">
+                    <i class="fas fa-snowflake hotel-icon"></i>
+                    <i class="fas fa-wifi hotel-icon"></i>
+                    <i class="fas fa-tv hotel-icon"></i>
+                    <i class="fas fa-lock hotel-icon"></i>
+                    <i class="fas fa-glass-martini hotel-icon"></i>
+                    <i class="fas fa-phone hotel-icon"></i>
+                    <i class="fas fa-utensil-fork hotel-icon"></i>
+                    <i class="fas fa-bath hotel-icon"></i>
+                    <i class="fas fa-utensils hotel-icon"></i>
                   </div>
                 </div>
               </div>
