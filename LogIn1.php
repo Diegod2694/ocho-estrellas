@@ -22,7 +22,7 @@
                 <a href="#sobre-nosotros">Sobre Nosotros</a>
                 <a href="#explora">Explora</a>
                 <a href="#contactanos">Contactanos</a>
-                <a href="#reservaciones">Reservaciones</a>
+                <a href="reservaciones.php">Reservaciones</a>
                 <a href="reporte.php" target="_blank">Panel Administrativo</a>
             </li>
         </ul>

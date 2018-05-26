@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    let fechaActual = new Date();
+    fechaActual = fechaActual.getFullYear()+"-"+(fechaActual.getMonth()+1)+"-"+fechaActual.getDate();
+    document.getElementById('fechaActual').value = fechaActual;
     // document.getElementById("BtnEnviar").disabled = true;
 
     // document.getElementById("advertencia").hidden = true;
@@ -18,6 +21,16 @@ $(document).ready(function () {
             return false;
         }
     });
+    $('#dias').keypress(function(key){
+        if(!/^[0-9]{0,1}$/.test(key.key)){
+            return false;
+        }
+        let x = $('#dias').val();
+        console.log("x=>",x);
+        if(!/^([0-9]{0})$/.test(x)){
+            return false;
+        }
+    })
     $('#advertencia').hover(function(){
         document.getElementById("faltantesPanel").hidden = false;
     }, function(){
@@ -38,6 +51,70 @@ function validateLogIn() {
     if(errores == 0){
         document.getElementById('BtnLogIn').disabled = false;
     }
+}
+
+function validateReserve() {
+    let errores = 0;
+    let datosFaltantes = '';
+    document.getElementById('datosFaltantes').innerHTML = '';
+    if($('#fechaLlegada').val() == ''){
+        document.getElementById('BtnRes').disabled = true;
+        errores++;
+        datosFaltantes+= "<li>Fecha de Llegada</li>"
+    }
+    if($('#fechaSalida').val() == ''){
+        document.getElementById('BtnRes').disabled = true;
+        errores++;
+        datosFaltantes+= "<li>Fecha de Salida</li>"
+    }
+    if($('#dias').val() == ''){
+        document.getElementById('BtnRes').disabled = true;
+        errores++;
+        datosFaltantes+= "<li>Días de Estadía</li>"
+    }
+    if($('#hotel').val() == ''){
+        document.getElementById('BtnRes').disabled = true;
+        errores++;
+        datosFaltantes+= "<li>Hotel de Estancia</li>"
+    }
+    if($('#habitacion').val() == ''){
+        document.getElementById('BtnRes').disabled = true;
+        errores++;
+        datosFaltantes+= "<li>Habitación de Reserva</li>"
+    }
+    if($('#fechaLlegada').val() != ''){
+        if($('#fechaSalida').val() != ''){
+            let fechaActual = new Date();
+            console.log("Fecha Actual => ", fechaActual);
+            let llegada = $('#fechaLlegada').val().split('-');
+            let salida = $('#fechaSalida').val().split('-');
+            console.log("AÑO", llegada[0], salida[0]);
+            console.log("MES", llegada[1], salida[1]);
+            console.log("DIA", llegada[2], salida[2]);
+            if(llegada[0] > salida[0]){
+                console.log("PRIM");
+                document.getElementById('BtnRes').disabled = true;
+                errores++;
+            } else if(llegada[1] > salida[1] && llegada[0] <= salida[0]){
+                console.log("SEC");
+                document.getElementById('BtnRes').disabled = true;
+                errores++;
+            } else if((llegada[2] > salida[2] && llegada[1] == salida[1])){
+                console.log("TERC");
+                document.getElementById('BtnRes').disabled = true;
+                errores++;
+            }
+            console.log("Llegada =>", llegada, "Salida =>", salida);
+        }
+    }
+    if(errores == 0){
+        document.getElementById('BtnRes').disabled = false;
+        document.getElementById("advertencia").hidden = true;
+    } else {
+        document.getElementById('BtnRes').disabled = true;
+        document.getElementById("advertencia").hidden = false;
+    }
+    document.getElementById('datosFaltantes').innerHTML = datosFaltantes;
 }
 
 function validateEmail(value) {

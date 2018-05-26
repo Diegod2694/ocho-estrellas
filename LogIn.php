@@ -28,6 +28,7 @@
                 if($password == $passbd){
                     $_SESSION['user'] = $username;
                     $_SESSION['permisos'] = $fila['Permisos'];
+                    $_SESSION['id_user'] = $fila['IdUsuario'];
                     header("Location: index.php");
                 } else {
                     echo "  
