@@ -28,7 +28,7 @@
         </ul>
     </div>
     <div class="otherSide">
-        <a href="index.html" class="link">¡Regresar!</a>
+        <a href="index.php" class="link">¡Regresar!</a>
     </div>
     <div class="container">
         <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">

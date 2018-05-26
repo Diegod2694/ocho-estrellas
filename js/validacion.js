@@ -1,5 +1,6 @@
 $(document).ready(function () {
     // document.getElementById("BtnEnviar").disabled = true;
+
     // document.getElementById("advertencia").hidden = true;
     // document.getElementById("faltantesPanel").hidden = true;
     $('.character').keypress(function (key) {
@@ -24,28 +25,20 @@ $(document).ready(function () {
     })
 });
 
-// <script>
-//             function soloLetras(e){
-//                key = e.keyCode || e.which;
-//                tecla = String.fromCharCode(key).toLowerCase();
-//                letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-//                especiales = "8-37-39-46";
-        
-//                tecla_especial = false
-//                for(var i in especiales){
-//                     if(key == especiales[i]){
-//                         tecla_especial = true;
-//                         break;
-//                     }
-//                 }
-        
-//                 if(letras.indexOf(tecla)==-1 && !tecla_especial){
-//                     return false;
-//                 }
-//             }
-//         </script>
-        
-//         <input type="text" onkeypress="return soloLetras(event)"> 
+function validateLogIn() {
+    let errores = 0;
+    if($('#userLog').val() == ''){
+        document.getElementById('BtnLogIn').disabled = true;
+        errores++;
+    } 
+    if($('#passLog').val() == ''){
+        document.getElementById('BtnLogIn').disabled = true;
+        errores++;
+    } 
+    if(errores == 0){
+        document.getElementById('BtnLogIn').disabled = false;
+    }
+}
 
 function validateEmail(value) {
     console.log("Value => ", value);

@@ -25,7 +25,7 @@
 
     if ($queryRespuesta){
         echo "Datos Registrados Exitosamente<br><br>
-                <a href='index.html'>Regresar al inicio</a>";
+                <a href='index.php'>Regresar al inicio</a>";
     } else {
         echo "Error en inserción de datos";
     }

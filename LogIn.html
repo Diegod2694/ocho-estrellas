@@ -15,7 +15,7 @@
 
 <body>
     <div class="otherSide">
-        <a href="index.html" class="link">¡Regresar!</a>
+        <a href="index.php" class="link">¡Regresar!</a>
     </div>
     <div class="container">
         <div class="wrapper" style="display:flex; align-items:center; justify-content:center; height:100vh;">
@@ -32,13 +32,13 @@
                         </div> -->
                     </div>
                     <div class="column">
-                        <input type='text' onkeyup="validateForm()" name='user' id='user' placeholder='Nombre de Usuario' required>
+                        <input type='text' onkeyup="validateLogIn()" name='userLog' id='userLog' placeholder='Nombre de Usuario' required>
                     </div>
                     <div class="column">
-                        <input type='password' onkeyup="validateForm()" name='pass' id='pass' placeholder='Contraseña' required>
+                        <input type='password' onkeyup="validateLogIn()" name='passLog' id='passLog' placeholder='Contraseña' required>
                     </div>
                     <br>
-                    <button disabled class="btn btn-default" name='BtnEnviar' type='submit' id='BtnEnviar' value='Enviar'>
+                    <button disabled class="btn btn-default" name='BtnLogIn' type='submit' id='BtnLogIn' value='Enviar'>
                         <i class='spinner'></i>
                         <span class='state'>Entrar</span>
                     </button>
