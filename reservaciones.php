@@ -37,7 +37,7 @@
                         echo "<a href='#'>".$user."</a>";
                         echo "<a>LogOut</a>";
                     } else {
-                        echo "<a href='LogIn.html'>Login</a>
+                        echo "<a href='LogIn.php'>Login</a>
                                 <a href='userRegister.php'>Registrarse</a>";
                     }
                 ?>

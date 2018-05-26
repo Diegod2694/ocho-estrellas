@@ -1,6 +1,9 @@
 /* <style> */
 body {
     background-color: rgb(35, 168, 124);
+    background-image: url(./../assets/5628075-venezuela-wallpapers.jpg);
+    background-size: cover;
+    height: 100vh;
 }
 
 .login {
@@ -55,11 +58,13 @@ body {
 .column {
     display: flex;
     flex-direction: column;
+    margin-top: 5%;
 }
 
 .fila {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .fila b {
@@ -114,4 +119,80 @@ input {
     margin-bottom: 10px;
     width: -webkit-fill-available;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 100px;
+    padding-left: 160px;
+    background-color: white;
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .header-title-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .header-title-container h1 {
+    font-size: 30px;
+    color: rgb(35, 168, 124);
+    margin: 0;
+  }
+  
+  .header-title-container h2 {
+    font-size: 25px;
+    color: rgb(1, 5, 4);
+    margin: 0;
+  }
+  
+  .header-action-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+  
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+    height: 30px;
+    background-color: rgb(35, 168, 124);
+    color: whitesmoke;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    z-index: 1001;
+  }
+  
+  nav ul {
+    display: flex;
+    margin: 0;
+  }
+  
+  nav ul li {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: whitesmoke;
+    padding: 0 20px;
+    font-weight: bold;
+    line-height: 30px;
+    text-shadow: 1px 1px 0px rgba(2, 2, 2, 0.5);
+    
+  }
+  
+  nav ul li a:hover{
+    background-color: aquamarine;
+    color: inherit;
+    text-decoration: none;
+  }  
 /* </style> */

@@ -30,8 +30,9 @@ class PDF extends FPDF {
 		
 		$this->SetFont('Arial','B',11);
 		
-		$this->SetFillColor(180,180,255);
-		$this->SetDrawColor(180,180,255);
+		$this->SetFillColor(35, 168, 124);
+		$this->SetDrawColor(35, 168, 124);
+		$this->SetTextColor(255, 255, 255);
 		$this->Cell(63.5,5,'Nombre de Usuario',1,0,'',true);
 		$this->Cell(63.5,5,'Password',1,0,'',true);
 		$this->Cell(63.5,5,'Permisos',1,0,'',true);
@@ -67,19 +68,21 @@ $pdf->AddPage();
 $pdf->SetFont('Arial','',9);
 $pdf->SetDrawColor(180,180,255);
 
+
 $pdf = new PDF();
 $pdf->AddPage();
-$pdf->Ln(7);
+$pdf->Ln(5);
 while (($fila=mysqli_fetch_array($querybusqueda))){
 $username = $fila['User'];
 $pass = $fila['Pass'];
 $permisos = $fila['desc_Permiso'];
 $id = $fila['id'];
 $pdf->SetFont('Arial','B',11);
+$pdf->setDrawColor(0, 144, 255, 0.98);
 $pdf->Cell(63.5,5, $username,1,0);
 $pdf->Cell(63.5,5, $pass,1,0);
 $pdf->Cell(63.5,5, $permisos,1,0);
-$pdf->Ln(7);
+$pdf->Ln(5);
 }
 ob_end_clean();
 $pdf->OutPut();

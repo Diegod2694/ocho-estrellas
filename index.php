@@ -35,9 +35,14 @@
                     if(isset($_SESSION['user'])){
                         $user = $_SESSION['user'];
                         echo "<a href='#'>".$user."</a>";
-                        echo "<a>LogOut</a>";
+                        echo "<a href='LogOut.php'>LogOut</a>";
+                        if(isset($_SESSION['permisos'])){
+                            if($_SESSION['permisos'] == 1){
+                                echo "<a href='userRegister.php'>Registrarse</a>";
+                            }
+                        }
                     } else {
-                        echo "<a href='LogIn.html'>Login</a>
+                        echo "<a href='LogIn1.php'>Login</a>
                                 <a href='userRegister.php'>Registrarse</a>";
                     }
                 ?>
