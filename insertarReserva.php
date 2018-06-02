@@ -4,33 +4,40 @@
     session_start();
     
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Insertar Reserva</title>
+    <?php 
+        include_once('head.php');
+    ?>
 </head>
 <body>
-    <?php
-        $fechaLlegada = $_POST['fechaLlegada'];
-        $fechaSalida = $_POST['fechaSalida'];
-        $fechaActual = $_POST['fechaActual'];
-        $precio = $_POST['precioDia'];
-        $usuario = $_SESSION['id_user'];
-        $hotel = $_POST['hotel'];
-        $habitacion = $_POST['habitacion'];
+    <div class="emergency-container">
+        <div class="emergency">
 
-        $query_insertar = $mysqli->query("INSERT INTO reservas (IdReserva, FechaInicio, FechaFin, FechaReserva, PrecioReserva, Usuario, EstadoReserva) VALUES (NULL, '$fechaLlegada', '$fechaSalida', '$fechaActual', $precio, $usuario, 1)");
+            <?php
+                $fechaLlegada = $_POST['fechaLlegada'];
+                $fechaSalida = $_POST['fechaSalida'];
+                $fechaActual = $_POST['fechaActual'];
+                $precio = $_POST['precioDia'];
+                $usuario = $_SESSION['id_user'];
+                $hotel = $_POST['hotel'];
+                $habitacion = $_POST['habitacion'];
 
-        $query_insertarHab = $mysqli->query("UPDATE habitaciones set Disponibilidad = 0 WHERE habitaciones.IdHabitacion = $habitacion");
+                $query_insertar = $mysqli->query("INSERT INTO reservas (IdReserva, FechaInicio, FechaFin, FechaReserva, PrecioReserva, Usuario, EstadoReserva) VALUES (NULL, '$fechaLlegada', '$fechaSalida', '$fechaActual', $precio, $usuario, 1)");
 
-        if($query_insertar){
-            echo "Reserva realizada existosamente";
-        }
-    ?>
+                $query_insertarHab = $mysqli->query("UPDATE habitaciones set Disponibilidad = 0 WHERE habitaciones.IdHabitacion = $habitacion");
+
+                if($query_insertar){
+                    echo "  
+                        
+                                <h1>Excelente!</h1>
+                                <h3>Reserva realizada existosamente</h3>
+                                <a href='index.php' class='no-link'>Regresar al inicio</a>
+                            ";
+                }
+            ?>
+        </div>
+    </div>
 </body>
 </html>

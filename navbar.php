@@ -11,12 +11,12 @@
                 echo "<a href='LogOut.php'>LogOut</a>";
                 if(isset($_SESSION['permisos'])){
                     if($_SESSION['permisos'] == 1){
-                        echo "<a href='userRegister.php'>Registrarse</a>";
+                        echo "<a href='userRegister.php'>Registro</a>";
                     }
                 }
             } else {
                 echo "<a href='LogIn1.php'>Login</a>
-                        <a href='userRegister.php'>Registrarse</a>";
+                        <a href='userRegister.php'>Registro</a>";
             }
         ?>
         <a href="reporte.php" target="_blank">Administracion</a>
@@ -36,12 +36,12 @@
                 echo "<a href='LogOut.php'>LogOut</a>";
                 if(isset($_SESSION['permisos'])){
                     if($_SESSION['permisos'] == 1){
-                        echo "<a href='userRegister.php'>Registrarse</a>";
+                        echo "<a href='userRegister.php'>Registro</a>";
                     }
                 }
             } else {
                 echo "<a href='LogIn1.php'>Login</a>
-                        <a href='userRegister.php'>Registrarse</a>";
+                        <a href='userRegister.php'>Registro</a>";
             }
         ?>
     </li>

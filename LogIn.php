@@ -37,7 +37,7 @@
                         <div class='error-container'>
                           <h1>ERROR DE INGRESO</h1>
                           <h3>Contraseña Incorrecta</h3>
-                          <a href='LogIn.php'>Volver al LogIn</a>
+                          <a href='LogIn1.php'>Volver al LogIn</a>
                         </div>
                     </div>
                     </center>";

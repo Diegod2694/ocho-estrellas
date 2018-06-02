@@ -10,7 +10,9 @@
     ?>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky" style="
+    position: sticky;z-index:100000
+">
   <!-- Brand -->
   <a class="navbar-brand" href="index.php"><i class="fas fa-star social-icon" style="font-size:24px;color:white;"></i></a>
 
@@ -39,7 +41,7 @@
                 if(isset($_SESSION['permisos'])){
                     if($_SESSION['permisos'] == 1){
                         echo "<li class='nav-item'>
-                            <a class='nav-link' href='#'>Administración</a></li>";
+                            <a class='nav-link' href='users.php'>Administración</a></li>";
                     }
                 }
             } 
@@ -55,12 +57,12 @@
                 echo "<li class='nav-item'><a class='nav-link' href='LogOut.php'>LogOut</a></li>";
                 if(isset($_SESSION['permisos'])){
                     if($_SESSION['permisos'] == 1){
-                        echo "<li class='nav-item'><a href='userRegister.php' class='nav-item'>Registrarse</a></li>";
+                        echo "<li class='nav-item'><a href='userRegister.php' class='nav-link'>Registro</a></li>";
                     }
                 }
             } else {
                 echo "<li class='nav-item'><a href='LogIn1.php' class='nav-item'>Login</a></li>
-                        <li class='nav-item'><a href='userRegister.php'>Registrarse</a></li>";
+                        <li class='nav-item'><a class='nav-link' href='userRegister.php'>Registro</a></li>";
             }
         ?>
     <!-- </li>
@@ -104,21 +106,23 @@
     </header>
 
     <section>
+    <form action="insertarReserva.php" method="get"></form>
         <div class="form-container" style="background-color:#86646a;" id="nosotros">
             <div class="form-content" style="margin:0 !important;">
                 <img class="form-logo" src="./assets/waterfall.png" alt="logo">
                 <div class="form-text-container">
                     <h2 style="color:white;">Bienvenidos a la Aventura</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, perspiciatis in. Quo, ab! Incidunt aliquam consequuntur fugit necessitatibus, ratione, error exercitationem neque delectus ducimus sed excepturi tempore ullam quam odio?</p>
+                    <p>Somos una cadena de hoteles alrededor del caribe y Venezuela, con los destinos más exóticos, como el Salto Ángel, Los Roques, Aruba y demás. </p>
                 </div>
             </div>
         </div>
+
 
         <div class="form-container secondary-color second-container">
            <div class="form-content" style="margin:0 !important;">
                <div class="form-text-container">
                    <h2>Nuestras Habitaciones</h2>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, perspiciatis in. Quo, ab! Incidunt aliquam consequuntur fugit necessitatibus, ratione, error exercitationem neque delectus ducimus sed excepturi tempore ullam quam odio?</p>
+                   <p>Nuestras habtaciones proveen del mayor confort para sus clientes, a la vez que están en increíbles lugares, viviendo aventuras extramas. </p>
                 </div>
                 <img class="img-hab" src="assets/hab1.jpg" alt="habitacion">
             </div>
@@ -137,18 +141,22 @@
                 <div class="footer-container-side">
                     <h2>Contactanos</h2>
                     <p>
-                        Pregúntame lo que desees...estoy aquí para cualquier pregunta que tengas. <br>
-                        info@misitio.com | Tel: 914-123-456 <br><br>
-                        R. Frame de Morá, Piso 6 <br>
-                        Rio de Janeiro - Ipanema
+                        Pueden preguntarnos lo que sea cuando sea, siempre estamos a la orden para nuestra clientela. <br>
+                        info@ochoestrellas.com | Tel: (0261) 741-7681 <br><br>
+                        Caracas - Distrito Capital <br>
+                        Maracaibo - Zulia
                     </p>
                 </div>
                 <div class="footer-container-side" id="contactanos">
                     <div class="social-container">
+                    <a href="facebook.com" class="no-link">
                         <i class="fab fa-facebook social-icon"></i>
-                        <i class="fab fa-google-plus-g social-icon"></i>
-                        <i class="fab fa-tripadvisor social-icon"></i>
-                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                    <a href="google.com" class="no-link">
+                        <i class="fab fa-google-plus-g social-icon"></i>                    
+                    </a>
+                    <a href="tripadvisor.com"><i class="fab fa-tripadvisor social-icon"></i></a>
+                    <a href="instagram.com"><i class="fab fa-instagram social-icon"></i></a>
                     </div>
                 </div>
             </div>

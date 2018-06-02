@@ -22,11 +22,34 @@
             '$cedulaFull', '$password', '$usuario', '$email', '$phone', '$address', $permisos)");
 
     // $queryRespuesta = $conn->query($sql);
-
-    if ($queryRespuesta){
-        echo "Datos Registrados Exitosamente<br><br>
-                <a href='index.php'>Regresar al inicio</a>";
-    } else {
-        echo "Error en inserción de datos";
-    }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <?php
+        include_once('head.php');
+    ?>
+</head>
+<body>
+    <div class="emergency-container">
+        <div class="emergency">
+            <?php
+                if ($queryRespuesta){
+                    echo "  
+                        
+                                <h1>Excelente!</h1>
+                                <h3>Datos registrados exitosamente.</h3>
+                                <a href='index.php' class='no-link'>Regresar al inicio</a>
+                            ";
+                } else {
+                    echo "  
+                        
+                                <h1>Error en inserción de datos!</h1>
+                                <a href='index.php' class='no-link'>Regresar al inicio</a>
+                            ";
+                }
+            ?>
+        </div>    
+    </div>
+</body>
+</html>

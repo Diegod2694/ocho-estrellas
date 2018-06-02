@@ -103,6 +103,7 @@ select {
     transition: border-width 0.2s ease;
     border-radius: 2px;
     color: #3fc779;
+    height: 50px;
 }
 
 input {
@@ -195,7 +196,7 @@ nav {
   }
   
   nav ul li a:hover{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     color: inherit;
     text-decoration: none;
   }  

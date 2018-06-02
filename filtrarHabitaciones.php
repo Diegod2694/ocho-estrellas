@@ -4,7 +4,7 @@
 
     $hotel = $_REQUEST['Idhotel'];
 
-    $consulta = $mysqli->query("SELECT * FROM habitaciones WHERE habitaciones.hotel = $hotel");
+    $consulta = $mysqli->query("SELECT * FROM habitaciones WHERE habitaciones.hotel = $hotel AND habitaciones.Disponibilidad = 1");
 
 	$vector = array();
 	$i = 0;

@@ -1,13 +1,10 @@
 $(document).ready(function () {
-    let fechaActual = new Date();
-    fechaActual = fechaActual.getFullYear()+"-"+(fechaActual.getMonth()+1)+"-"+fechaActual.getDate();
-    document.getElementById('fechaActual').value = fechaActual;
     // document.getElementById("BtnEnviar").disabled = true;
 
     // document.getElementById("advertencia").hidden = true;
     // document.getElementById("faltantesPanel").hidden = true;
     $('.character').keypress(function (key) {
-        if (!/^[a-zA-Z]$/.test(key.key) && ket.charCode != 32) {
+        if (!/^[a-zA-Z]$/.test(key.key) && key  .charCode != 32) {
             return false;
         }
     });
@@ -35,7 +32,7 @@ $(document).ready(function () {
         document.getElementById("faltantesPanel").hidden = false;
     }, function(){
         document.getElementById("faltantesPanel").hidden = true;
-    })
+    });
 });
 
 function validateLogIn() {
@@ -67,11 +64,11 @@ function validateReserve() {
         errores++;
         datosFaltantes+= "<li>Fecha de Salida</li>"
     }
-    if($('#dias').val() == ''){
-        document.getElementById('BtnRes').disabled = true;
-        errores++;
-        datosFaltantes+= "<li>Días de Estadía</li>"
-    }
+    // if($('#dias').val() == ''){
+    //     document.getElementById('BtnRes').disabled = true;
+    //     errores++;
+    //     datosFaltantes+= "<li>Días de Estadía</li>"
+    // }
     if($('#hotel').val() == ''){
         document.getElementById('BtnRes').disabled = true;
         errores++;

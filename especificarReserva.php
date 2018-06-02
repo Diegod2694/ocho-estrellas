@@ -23,36 +23,64 @@
     <title>Ocho-Estrellas / Reservaciones</title>
 </head>
 <body>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.php">Inicio</a>
-                    <a href="#sobre-nosotros">Sobre Nosotros</a>
-                    <a href="#explora">Explora</a>
-                    <a href="#contactanos">Contactanos</a>
-                    <a href="#reservaciones">Reservaciones</a>
-                    <a href="reporte.php" target="_blank">Panel Administrativo</a>
-                </li>
-            </ul>
-            <!-- <ul>
-                <li>
-                    <?php
-                        if(isset($_SESSION['user'])){
-                            $user = $_SESSION['user'];
-                            echo "<a href='#'>".$user."</a>";
-                            echo "<a href='LogOut.php'>LogOut</a>";
-                            if(isset($_SESSION['permisos'])){
-                                if($_SESSION['permisos'] == 1){
-                                    echo "<a href='userRegister.php'>Registrarse</a>";
-                                }
-                            }
-                        } else {
-                            echo "<a href='LogIn1.php'>LogIn</a>";
-                        }
-                    ?>
-                </li>
-            </ul> -->
-        </nav>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="index.php"><i class="fas fa-star social-icon" style="font-size:24px;color:white;"></i></a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.php">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="reservaciones.php">Reservaciones</a>
+      </li> 
+      <?php
+            if(isset($_SESSION['user'])){
+                if(isset($_SESSION['permisos'])){
+                    if($_SESSION['permisos'] == 1){
+                        echo "<li class='nav-item'>
+                            <a class='nav-link' href='users.php'>Administración</a></li>";
+                    }
+                }
+            } 
+        ?>
+    </ul>
+  </div> 
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+        <?php
+            if(isset($_SESSION['user'])){
+                $user = $_SESSION['user'];
+                echo "<li class='nav-item'><a class='nav-link' href='#'>".$user."</a></li>";
+                echo "<li class='nav-item'><a class='nav-link' href='LogOut.php'>LogOut</a></li>";
+                if(isset($_SESSION['permisos'])){
+                    if($_SESSION['permisos'] == 1){
+                        echo "<li class='nav-item'><a href='userRegister.php' class='nav-item'>Registro</a></li>";
+                    }
+                }
+            } else {
+                echo "<li class='nav-item'><a href='LogIn1.php' class='nav-link'>Login</a></li>
+                        <li class='nav-item'><a class='navlink href='userRegister.php'>Registro</a></li>";
+            }
+        ?>
+    <!-- </li>
+            <li class="nav-item">
+                <a class="nav-link" href="userRegister.php">Registro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="LogIn.php">Login</a>
+            </li>
+        </ul> -->
+    </div>
+</nav>
+
         <div class="aside" hidden id="faltantesPanel" style="float: right">
         <b class='title'>Datos faltantes</b>
         <br>
@@ -164,6 +192,12 @@
 
         });
     });
+</script>
+<script type="text/javascript">
+    
+    let fechaActual = new Date();
+    fechaActual = fechaActual.getFullYear()+"-"+(fechaActual.getMonth()+1)+"-"+fechaActual.getDate();
+    document.getElementById('fechaActual').value = fechaActual;
 </script>
 <script type="text/javascript">
 		$(document).ready(function(){
